@@ -18,8 +18,3 @@ Route::get('/', function () {
 
 
 });
-Route::get('/cotave', function () {
-    dd('hola cotave eres admin');
-
-    
-});
