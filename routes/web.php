@@ -15,4 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+
+
+});
+Route::get('/cotave', function () {
+    dd('hola cotave eres admin');
+
+    
 });
