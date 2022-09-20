@@ -26,6 +26,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        \Stancl\Tenancy\Middleware\InitializeTenancyByDomain::$onFail = function () {
+            return redirect('https://my-central-domain.com/');
+        };
         $this->configureRateLimiting();
 
         $this->routes(function () {
