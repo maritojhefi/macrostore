@@ -24,7 +24,9 @@ Route::get('/dashboard', function () {
 
 
 Auth::routes();
-
+Route::get('/admin', function () {
+    return view('admin.prueba.prueba');
+});
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
