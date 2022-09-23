@@ -28,7 +28,8 @@ Route::get('/dashboard', function () {
 
 Auth::routes();
 Route::get('/admin1', function () {
-    User::create(['name' => 'Marito','email'=>Str::random(3).'@gmail.com','password'=>'12345']);
+    $client=User::create(['name' => 'Marito','email'=>Str::random(3).'@gmail.com','password'=>'12345']);
+    $client->indices()->create(['index' => 'users']);
     return view('admin.prueba.prueba');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
