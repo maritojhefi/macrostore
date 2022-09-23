@@ -51,7 +51,7 @@ Route::get('/admin1', function () {
         'body'  => [
             'query' => [
                 'match' => [
-                    'users' => ''
+                    'users' => 'marie'
                 ]
             ]
         ]
