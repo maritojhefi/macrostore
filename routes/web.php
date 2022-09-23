@@ -57,7 +57,7 @@ Route::get('/admin1', function () {
         ]
     ];
     $response = $client->search($params);
-    dd($response);
+    dd($response['hits']);
     printf("Total docs: %d\n", $response['hits']['total']['value']);
     printf("Max score : %.4f\n", $response['hits']['max_score']);
     printf("Took      : %d ms\n", $response['took']);
