@@ -5,8 +5,8 @@ namespace App\Providers;
 use App\Models\User;
 use Elasticsearch\Client;
 use App\Observers\UserObserver;
-use Elasticsearch\ClientBuilder;
 use Illuminate\Support\ServiceProvider;
+use Elastic\Elasticsearch\ClientBuilder;
 
 class AppServiceProvider extends ServiceProvider
 {
