@@ -28,6 +28,10 @@ Route::get('/dashboard', function () {
 
 Auth::routes();
 Route::get('/admin1', function () {
+
+    $client = ClientBuilder::create()
+    ->setHosts(['localhost:9200'])
+    ->build();
     $client = ClientBuilder::create()
         ->setHosts(['localhost:9200'])
         ->build();
