@@ -32,6 +32,10 @@ Route::get('/admin1', function () {
     $client = ClientBuilder::create()
     ->setHosts(['localhost:9200'])
     ->build();
+
+    $response = $client->info();
+
+    echo $response['version']['number']; // 8.0.0
     $client = ClientBuilder::create()
         ->setHosts(['localhost:9200'])
         ->build();
