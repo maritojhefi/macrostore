@@ -22,7 +22,7 @@ class UserObserver
     {
         //
     }
-    public function saved($model)
+    public function saved(User $model)
     {
         $this->client->index([
             'index' => 'users',
