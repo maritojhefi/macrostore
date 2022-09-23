@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use Illuminate\Support\Str;
+use Elastic\Elasticsearch\Client;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -32,5 +33,19 @@ Route::get('/admin1', function () {
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/search', function(Client $client) {
+    $res = $client->search([
+        'index' => 'users',
+        'type' => 'users',
+        'body' => [
+            'query' => [
+                'match' => [
+                    'name' => 'merio'
+                ]
+            ]
+        ]
+    ]);
 
+    dd($res);
+});
 
