@@ -31,7 +31,7 @@ Route::get('/admin1', function () {
 
     $client = ClientBuilder::create()
     
-    ->setHosts(['https://localhost:9200'])
+    ->setHosts(['http://localhost:9200'])
     ->build();
 
     $response = $client->info();
