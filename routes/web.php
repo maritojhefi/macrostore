@@ -33,7 +33,7 @@ Route::get('/admin1', function () {
         ->build();
     $params = [
         'index' => 'users',
-        'body'  => ['users' => 'marie']
+        'body'  => ['users' => 'mario']
     ];
 
     try {
@@ -51,7 +51,7 @@ Route::get('/admin1', function () {
         'body'  => [
             'query' => [
                 'match' => [
-                    'users' => 'marie'
+                    'users' => 'mare'
                 ]
             ]
         ]
