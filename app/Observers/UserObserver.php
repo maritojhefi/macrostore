@@ -3,7 +3,8 @@
 namespace App\Observers;
 
 use App\Models\User;
-use Elasticsearch\Client;
+use Elastic\Elasticsearch\Client;
+
 class UserObserver
 {
     /**
