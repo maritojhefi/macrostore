@@ -51,13 +51,13 @@ Route::get('/admin1', function () {
         'body'  => [
             'query' => [
                 'match' => [
-                    'testField' => 'merio'
+                    'users' => 'merio'
                 ]
             ]
         ]
     ];
     $response = $client->search($params);
-    
+    dd($response);
     printf("Total docs: %d\n", $response['hits']['total']['value']);
     printf("Max score : %.4f\n", $response['hits']['max_score']);
     printf("Took      : %d ms\n", $response['took']);
