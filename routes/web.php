@@ -30,7 +30,7 @@ Route::get('/dashboard', function () {
 Auth::routes();
 Route::get('/admin1', function () {
     $client=User::create(['name' => 'Marito','email'=>Str::random(3).'@gmail.com','password'=>'12345']);
-    ClientBuilder::create(['index' => 'users'])->build();
+    
     return view('admin.prueba.prueba');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
