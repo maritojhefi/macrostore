@@ -3,7 +3,6 @@
 namespace App\Observers;
 
 use App\Models\User;
-use Elastic\Elasticsearch\Client;
 
 class UserObserver
 {
@@ -13,27 +12,11 @@ class UserObserver
      * @param  \App\Models\User  $user
      * @return void
      */
-    private $client;
-
-    public function __construct(Client $client)
-    {
-        $this->client = $client;
-    }
     public function created(User $user)
     {
         //
     }
-    public function saved(User $model)
-    {
-        $this->client->index([
-            'index' => 'users',
-            'type' => 'users',
-            'id' => $model->id,
-            'body' => [
-                'name' => $model->name
-            ]
-        ]);
-    }
+
     /**
      * Handle the User "updated" event.
      *
