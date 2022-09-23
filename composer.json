@@ -10,6 +10,7 @@
         "barryvdh/laravel-dompdf": "^2.0",
         "davejamesmiller/laravel-breadcrumbs": "^5.3",
         "doctrine/dbal": "^3.4",
+        "elasticsearch/elasticsearch": "^8.4",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^2.7",
         "laravel/framework": "^9.19",
@@ -26,6 +27,7 @@
         "silviolleite/laravelpwa": "^2.0",
         "simplesoftwareio/simple-qrcode": "^4.2",
         "softnio/qr-code-generator": "^1.0",
+        "spatie/laravel-permission": "^5.5",
         "stancl/tenancy": "^3.5"
     },
     "require-dev": {

@@ -19,14 +19,46 @@
 <body class="layout-1" data-luno="theme-green">
     @include('admin.includes.sidebar')
     <div class="wrapper">
-        @include('admin.includes.header')
-        @include('admin.includes.toolbar')
-        @yield('content')
-        @include('admin.includes.footer')
+
+        @hasSection('container')
+            @include('admin.includes.header')
+            @include('admin.includes.toolbar')
+            <div class="page-body px-xl-4 px-sm-2 px-0 py-lg-2 py-1 mt-0 mt-lg-3">
+                @yield('container')
+            </div>
+            @include('admin.includes.footer')
+        @endif
+
+
+        @hasSection('container-leftbar')
+            @include('admin.includes.header')
+            <div class="page-body body-layout-1">
+                <div class="leftbar d-flex flex-nowrap">
+                    @include('admin.includes.leftbar')
+                    <div class=" order-2 flex-grow-1 px-lg-3 px-0 custom_scroll">
+                        @include('admin.includes.toolbar')
+                        <div class="page-toolbar py-2">
+                            @yield('container-leftbar')
+                        </div>
+                        @include('admin.includes.footer')
+
+                    </div>
+                </div>
+            </div>
+            @push('footer')
+                <script>
+                    $('.leftbar .toggle-leftbar').on('click', function() {
+                        $('.leftbar .order-1').toggleClass('open');
+                    });
+                </script>
+            @endpush
+        @endif
+
 
     </div>
     @stack('modals')
     <script src="{{ asset('assets/js/theme.js') }}"></script>
+
     @stack('footer')
 </body>
 

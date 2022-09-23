@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +27,7 @@ Route::get('/dashboard', function () {
 
 Auth::routes();
 Route::get('/admin1', function () {
+    User::create(['name' => 'Marito','email'=>Str::random(3).'@gmail.com','password'=>'12345']);
     return view('admin.prueba.prueba');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
