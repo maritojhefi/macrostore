@@ -37,8 +37,10 @@ Route::get('/admin1', function () {
 
     echo $response['version']['number']; // 8.0.0
     $client = ClientBuilder::create()
-        ->setHosts(['localhost:9200'])
-        ->build();
+    ->setBasicAuthentication('elastic', 'LisRrIul9oMKh2deJkMv')
+    ->setCABundle('/etc/elasticsearch/certs/http_ca.crt')
+    ->setHosts(['https://localhost:9200'])
+    ->build();
     $params = [
         'index' => 'users',
         'body'  => ['users' => 'mario']
