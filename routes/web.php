@@ -5,6 +5,7 @@ use Illuminate\Support\Str;
 use Elastic\Elasticsearch\Client;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Elastic\Elasticsearch\ClientBuilder;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ Route::get('/dashboard', function () {
 Auth::routes();
 Route::get('/admin1', function () {
     $client=User::create(['name' => 'Marito','email'=>Str::random(3).'@gmail.com','password'=>'12345']);
-    $client->indices()->create(['index' => 'users']);
+    ClientBuilder::create(['index' => 'users'])->build();
     return view('admin.prueba.prueba');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
