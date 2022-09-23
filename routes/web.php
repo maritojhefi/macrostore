@@ -46,7 +46,23 @@ Route::get('/admin1', function () {
         // eg. network error like NoNodeAvailableException
     }
 
-    print_r($response->asArray());  // response body content as array
-    return view('admin.prueba.prueba');
+    $params = [
+        'index' => 'users',
+        'body'  => [
+            'query' => [
+                'match' => [
+                    'testField' => 'merio'
+                ]
+            ]
+        ]
+    ];
+    $response = $client->search($params);
+    
+    printf("Total docs: %d\n", $response['hits']['total']['value']);
+    printf("Max score : %.4f\n", $response['hits']['max_score']);
+    printf("Took      : %d ms\n", $response['took']);
+    
+    print_r($response['hits']['hits']); // documents
+    //return view('admin.prueba.prueba');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
