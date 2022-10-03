@@ -47,8 +47,8 @@
             </div>
             @push('footer')
                 <script>
-                    $('.leftbar .toggle-leftbar').on('click', function() {
-                        $('.leftbar .order-1').toggleClass('open');
+                    $('.social-list-toggle').on('click', function() {
+                        $('.leftbar').toggleClass('open');
                     });
                 </script>
             @endpush
@@ -56,9 +56,17 @@
 
 
     </div>
+
     @stack('modals')
     <script src="{{ asset('assets/js/theme.js') }}"></script>
-
+    <script>
+        document.addEventListener('click', function handleClickOutsideBox(event) {
+            const box = document.getElementById('left-bar');
+            if (!box.contains(event.target)) {
+                box.classList.remove("open");
+            }
+        });
+    </script>
     @stack('footer')
 </body>
 

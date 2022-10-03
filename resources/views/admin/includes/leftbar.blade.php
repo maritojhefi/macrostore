@@ -1,4 +1,4 @@
-<div class="order-1 custom_scroll">
+<div class="order-1 custom_scroll leftbar">
     <button type="button" class="btn bg-secondary text-light mb-3 w-100">Create New</button>
     <ul class="nav nav-tabs menu-list list-unstyled mb-0 border-0" role="tablist">
         <li class="nav-item" role="presentation">
